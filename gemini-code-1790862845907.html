@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="غزل؛ آژانس تبلیغاتی خلاق. طراحی گرافیک، تولید محتوا، مدیریت فضای مجازی و طراحی سایت.">
+<title>غزل | آژانس تبلیغاتی خلاق</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg-main: #020204;
+    --bg-card: #313133;
+    --text-light: #ECEEFF;
+    --muted: #b0b0b2;
+    --accent: #D0A616;
+    --font-fa: 'Vazirmatn', Tahoma, sans-serif;
+    --font-en: 'Montserrat', Arial, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 20px; }
+body { background: var(--bg-main); color: var(--text-light); font-family: var(--font-fa); line-height: 1.9; overflow-x: hidden; }
+.en-block { font-family: var(--font-en); direction: ltr; text-align: left; }
+a { text-decoration: none; color: var(--text-light); transition: color .3s; }
+a:hover { color: var(--accent); }
+a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+
+header { padding: 30px 0; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.logo { font-size: 1.2rem; font-weight: 900; font-family: var(--font-en); letter-spacing: 1px; }
+.logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 30px; list-style: none; }
+.btn { background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 12px 24px; font-family: var(--font-fa); font-weight: 700; cursor: pointer; transition: all .3s; display: inline-flex; align-items: center; justify-content: center; border-radius: 4px; }
+.btn:hover { background: var(--accent); color: var(--bg-main); }
+.btn-solid { background: var(--accent); color: var(--bg-main); }
+.btn-solid:hover { background: transparent; color: var(--accent); }
+
+section { padding: 100px 0; border-top: 1px solid rgba(236,238,255,.06); }
+.sec-header { margin-bottom: 50px; }
+.sec-title-en { font-size: 1rem; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; font-family: var(--font-en); }
+.sec-title-fa { font-size: 2.5rem; font-weight: 900; line-height: 1.5; }
+.sec-sub { margin-top: 10px; font-size: 1.1rem; color: var(--muted); }
+
+/* Hero */
+.hero { border-top: none; padding: 40px 0 110px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+.logo-stage { position: relative; width: min(380px, 78vw); aspect-ratio: 1; display: grid; place-items: center; perspective: 1200px; margin-bottom: 20px; }
+.logo-tilt { width: 100%; height: 100%; display: grid; place-items: center; transform-style: preserve-3d; transition: transform .3s ease-out; animation: float 7s ease-in-out infinite; }
+.glow, .hero-logo { grid-area: 1/1; }
+
+.glow { 
+    width: 140%; 
+    aspect-ratio: 1; 
+    border-radius: 50%; 
+    background: radial-gradient(circle at 50% 50%, rgba(232,195,50,0.8) 0%, rgba(208,166,22,0.4) 45%, transparent 70%); 
+    box-shadow: 0 0 150px 80px rgba(208,166,22,0.4), 0 0 350px 150px rgba(208,166,22,0.25); 
+    filter: blur(15px);
+}
+.hero-logo { width: 56%; height: auto; position: relative; transform: translateZ(40px); filter: invert(1); }
+
+@keyframes float { 0%, 100% { translate: 0 -6px; } 50% { translate: 0 8px; } }
+.hero h1 { font-size: 3.2rem; color: var(--accent); line-height: 1.5; font-weight: 900; max-width: 800px; }
+.hero p { font-size: 1.1rem; max-width: 700px; color: var(--muted); margin-bottom: 10px; }
+.hero-btns { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+
+.about-content { max-width: 800px; }
+.about-subtitle { font-size: 1.8rem; color: var(--accent); margin-bottom: 10px; font-weight: 700; }
+.about-slogan-en { font-size: 1.4rem; font-family: var(--font-en); font-weight: 700; direction: ltr; text-align: right; margin-bottom: 24px; display: block; }
+.about-content p { color: var(--muted); }
+.about-content p.hl { margin-top: 15px; color: var(--accent); }
+
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 30px; }
+.service-card { background: var(--bg-card); padding: 40px; border-radius: 8px; transition: transform .3s, border-color .3s; border: 1px solid transparent; display: flex; flex-direction: column; }
+.service-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+.service-number { font-family: var(--font-en); font-size: 3rem; color: rgba(208, 166, 22, .25); font-weight: 900; line-height: 1; margin-bottom: 10px; }
+.service-card h3 { font-size: 1.4rem; margin-bottom: 2px; }
+.en-subtitle { color: var(--accent); font-family: var(--font-en); direction: ltr; text-align: right; margin-bottom: 20px; display: block; }
+.service-card p { color: var(--muted); margin-bottom: 30px; flex-grow: 1; }
+.service-formula { font-family: var(--font-en); direction: ltr; font-size: .85rem; background: rgba(2, 2, 4, .5); padding: 10px; border-radius: 4px; text-align: center; letter-spacing: 1px; }
+
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 40px; }
+.feature-item h3 { font-size: 1.3rem; color: var(--accent); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+.feature-item h3::before { content: ''; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; flex: none; }
+.feature-item p { color: var(--muted); padding-right: 20px; }
+.feature-wide { grid-column: 1 / -1; justify-self: center; max-width: 800px; background: rgba(49, 49, 51, 0.3); padding: 30px; border-radius: 8px; border-right: 4px solid var(--accent); }
+.feature-wide h3::before { display: none; }
+.feature-wide p { padding-right: 0; line-height: 2; margin-bottom: 10px; }
+
+.process-container { display: flex; flex-direction: column; gap: 20px; }
+.process-step { display: flex; align-items: center; background: var(--bg-card); padding: 20px 30px; border-radius: 8px; border-right: 4px solid var(--accent); }
+.process-num { font-family: var(--font-en); font-size: 2rem; font-weight: 900; color: rgba(208, 166, 22, .4); min-width: 60px; }
+.process-title { font-size: 1.2rem; font-weight: 700; min-width: 150px; }
+.process-desc { color: var(--muted); }
+
+.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 20px; }
+.portfolio-item { position: relative; aspect-ratio: 9/16; border: 1px solid transparent; border-radius: 8px; overflow: hidden; background: var(--bg-card); cursor: zoom-in; padding: 0; transition: border-color .3s; }
+.portfolio-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s; }
+.portfolio-item span { position: absolute; inset: auto 0 0 0; padding: 36px 14px 12px; background: linear-gradient(transparent, rgba(2, 2, 4, .88)); color: var(--text-light); font: 700 .95rem var(--font-fa); text-align: right; opacity: 0; transition: opacity .3s; }
+.portfolio-item:hover, .portfolio-item:focus-visible { border-color: var(--accent); }
+.portfolio-item:hover img { transform: scale(1.04); }
+.portfolio-item:hover span, .portfolio-item:focus-visible span { opacity: 1; }
+@media(hover:none) { .portfolio-item span { opacity: 1; } }
+
+.lightbox { position: fixed; inset: 0; background: rgba(2, 2, 4, .97); display: none; align-items: center; justify-content: center; z-index: 100; padding: 56px 70px; }
+.lightbox.open { display: flex; }
+.lightbox figure { display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: 100%; max-height: 100%; }
+.lightbox img { max-width: 100%; max-height: calc(100vh - 150px); object-fit: contain; border-radius: 6px; }
+.lightbox figcaption { color: var(--muted); }
+.lb-btn { position: absolute; background: rgba(236, 238, 255, .08); color: var(--text-light); border: 1px solid rgba(236, 238, 255, .2); width: 46px; height: 46px; border-radius: 50%; font-size: 1.6rem; line-height: 1; cursor: pointer; transition: .3s; }
+.lb-btn:hover { background: var(--accent); color: var(--bg-main); }
+.lb-close { top: 16px; left: 16px; } .lb-prev { right: 14px; top: 50%; margin-top: -23px; } .lb-next { left: 14px; top: 50%; margin-top: -23px; }
+
+.cta-section { background: var(--bg-card); text-align: center; padding: 100px 20px; border-top: none; }
+.cta-section h2 { font-size: 2.5rem; color: var(--accent); margin-bottom: 25px; line-height: 1.5; }
+.cta-content { font-size: 1.2rem; margin-bottom: 40px; line-height: 2.1; }
+.cta-content .strong { display: block; color: var(--accent); font-size: 1.5rem; font-weight: 700; margin: 10px 0; }
+
+footer { padding: 50px 0; text-align: center; border-top: 1px solid rgba(236, 238, 255, .06); }
+.footer-logo { font-family: var(--font-en); direction: ltr; font-size: 1.3rem; font-weight: 900; letter-spacing: 1px; }
+.footer-logo span { color: var(--accent); }
+.footer-text { color: var(--muted); font-size: .9rem; margin-top: 15px; font-family: var(--font-en); direction: ltr; }
+
+/* Modal */
+.modal-overlay {
+    position: fixed; inset: 0; 
+    background: rgba(2, 2, 4, 0.6); 
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    display: none; align-items: center; justify-content: center; 
+    z-index: 1000; opacity: 0; transition: opacity 0.3s ease;
+}
+.modal-overlay.active { display: flex; opacity: 1; }
+.modal-content {
+    background: rgba(49, 49, 51, 0.5); 
+    border: 1px solid rgba(236, 238, 255, 0.1);
+    padding: 40px 30px; border-radius: 16px; 
+    text-align: center; max-width: 90%; width: 420px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); 
+    position: relative;
+    transform: translateY(20px); transition: transform 0.3s ease;
+}
+.modal-overlay.active .modal-content { transform: translateY(0); }
+.modal-close-btn {
+    position: absolute; top: 15px; left: 15px; 
+    background: none; border: none; color: var(--muted); 
+    font-size: 2rem; cursor: pointer; line-height: 1; transition: 0.3s;
+}
+.modal-close-btn:hover { color: var(--accent); }
+.modal-content h3 { font-size: 1.8rem; color: var(--accent); margin-bottom: 10px; }
+.modal-content p { color: var(--text-light); margin-bottom: 30px; font-size: 1.1rem; line-height: 1.8; }
+.contact-links { display: flex; flex-direction: column; gap: 15px; }
+.contact-links .btn { width: 100%; font-size: 1.1rem; padding: 15px; }
+
+@media(max-width:768px){
+    .hero h1 { font-size: 2.2rem; } .sec-title-fa, .cta-section h2 { font-size: 2rem; }
+    .process-step { flex-direction: column; align-items: flex-start; } .process-title { margin: 6px 0; }
+    .nav-links { display: none; } .logo { font-size: .95rem; } .btn { padding: 10px 16px; }
+    .service-card { padding: 30px; }
+    .lightbox { padding: 60px 10px 70px; } .lb-prev, .lb-next { top: auto; bottom: 12px; margin: 0; }
+    .lb-prev { right: calc(50% + 8px); } .lb-next { left: calc(50% + 8px); }
+}
+@media(prefers-reduced-motion:reduce){ .logo-tilt, .glow, .ring { animation: none; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+    <div class="logo">Ghazal <span>—</span> Creative Agency</div>
+    <ul class="nav-links">
+        <li><a href="#about">درباره ما</a></li>
+        <li><a href="#services">خدمات</a></li>
+        <li><a href="#portfolio">نمونه‌کارها</a></li>
+    </ul>
+    <a href="#" class="btn open-modal-btn">شروع همکاری</a>
+</header>
+
+<section class="hero">
+    <div class="logo-stage" id="stage">
+        <div class="logo-tilt" id="tilt">
+            <div class="glow"></div>
+            <img src="Bold Black Geometric Monogram.png" alt="لوگوی غزل" class="hero-logo">
+        </div>
+    </div>
+    <h1>ایده‌ای که برند شما را دیدنی می‌کند.</h1>
+    <p>از طراحی گرافیک و تولید محتوا تا مدیریت فضای مجازی و طراحی سایت، همراه شما هستیم تا مسیر تبلیغات برندتان حرفه‌ای‌تر و هدفمندتر باشد.</p>
+    <div class="hero-btns">
+        <a href="#" class="btn btn-solid open-modal-btn">شروع همکاری</a>
+        <a href="#portfolio" class="btn">مشاهده نمونه‌کارها</a>
+    </div>
+</section>
+
+<section id="about">
+    <div class="sec-header">
+        <div class="sec-title-en">About Us</div>
+        <h2 class="sec-title-fa">درباره ما</h2>
+    </div>
+    <div class="about-content">
+        <h3 class="about-subtitle">پیش از اجرا، فکر می‌کنیم.</h3>
+        <span class="about-slogan-en">Think. Create. Grow.</span>
+        <p>هر کسب‌وکار داستان خودش را دارد و تبلیغات خوب با شناخت همین داستان آغاز می‌شود. ما در غزل با ترکیب خلاقیت، طراحی و استراتژی، راهکارهایی می‌سازیم که به‌راستی متناسب با برند شما باشند؛ نه نسخه‌ای تکراری برای همه.</p>
+        <p class="hl">کیفیت بالا، قیمت منصفانه و مشاوره در مسیر تبلیغات، سه اصلی هستند که در همه همکاری‌هایمان دنبال می‌کنیم.</p>
+    </div>
+</section>
+
+<section id="services">
+    <div class="sec-header">
+        <div class="sec-title-en">What We Do</div>
+        <h2 class="sec-title-fa">خدمات ما</h2>
+        <p class="sec-sub">سه مسیر اصلی برای ساخت و رشد برند شما</p>
+    </div>
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-number">01</div>
+            <h3>طراحی گرافیک</h3>
+            <span class="en-subtitle">Graphic Design</span>
+            <p>از هویت بصری و لوگو تا پوستر، بنر، کاتالوگ و طراحی محتوای شبکه‌های اجتماعی؛ هر آنچه برند شما برای حضوری بصری و حرفه‌ای نیاز دارد.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-number">02</div>
+            <h3>تولید محتوا و فضای مجازی</h3>
+            <span class="en-subtitle">Content &amp; Social Media</span>
+            <p>مخاطب امروز پیش از خرید، برند شما را در فضای مجازی می‌بیند؛ پس حضور شما باید حرفه‌ای، منظم و متمایز باشد. از ایده‌پردازی و سناریو تا طراحی، تولید، تدوین و مدیریت محتوا، همراهتان هستیم تا صفحه‌تان فقط یک صفحه نباشد؛ صدای برندتان باشد.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-number">03</div>
+            <h3>طراحی سایت</h3>
+            <span class="en-subtitle">Web Design</span>
+            <p>وب‌سایت، خانه دیجیتال برند شماست. سایتی مدرن، کاربردی و هماهنگ با هویت برندتان طراحی می‌کنیم تا مخاطب از نخستین بازدید، تجربه‌ای حرفه‌ای از کسب‌وکار شما داشته باشد.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="sec-header">
+        <div class="sec-title-en">Why Ghazal?</div>
+        <h2 class="sec-title-fa">چرا غزل؟</h2>
+    </div>
+    <div class="features-grid">
+        <div class="feature-item"><h3>خلاقیت واقعی</h3><p>برای هر پروژه، راه‌حلی متفاوت و متناسب با هویت همان برند پیدا می‌کنیم.</p></div>
+        <div class="feature-item"><h3>کیفیت قابل اعتماد</h3><p>جزئیات برای ما مهم است؛ از نخستین ایده تا خروجی نهایی.</p></div>
+        <div class="feature-item"><h3>قیمت منصفانه</h3><p>خدمات حرفه‌ای را با هزینه‌ای متناسب با نیاز و توان کسب‌وکارها ارائه می‌کنیم.</p></div>
+        <div class="feature-item"><h3>مشاوره در کنار اجرا</h3><p>فقط سفارش شما را تحویل نمی‌گیریم؛ در مسیر تبلیغات، ایده و پیشنهاد هم داریم.</p></div>
+        <div class="feature-item feature-wide">
+            <h3>همه‌چیز در یک تیم</h3>
+            <p>طراحی، محتوا، فضای مجازی و سایت را می‌توانید با یک تیم و یک نگاه یکپارچه پیش ببرید.</p>
+            <p>از شکل‌گیری ایده تا اجرای نهایی، همه‌چیز در یک مسیر هماهنگ و هدفمند پیش می‌رود؛ تا هویت برند شما در تمام نقاط تماس، یکدست، حرفه‌ای و متمایز دیده شود. ما کنار شما هستیم تا ایده‌ها را به طراحی‌های جذاب، محتوای اثرگذار و تجربه‌ای حرفه‌ای در فضای دیجیتال تبدیل کنیم؛ بدون اینکه برای هر بخش، سراغ یک تیم جدا بروید.</p>
+            <p style="color:var(--accent); font-weight:700; margin-top:10px;">یک تیم، یک نگاه، یک مسیر برای رشد برند شما.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="sec-header">
+        <div class="sec-title-en">Our Process</div>
+        <h2 class="sec-title-fa">روند همکاری</h2>
+        <p class="sec-sub" style="color:var(--accent)">از ایده تا اجرا، کنار شما</p>
+    </div>
+    <div class="process-container">
+        <div class="process-step"><div class="process-num">01</div><div class="process-title">شناخت</div><div class="process-desc">برند، کسب‌وکار و اهداف شما را به‌دقت می‌شناسیم.</div></div>
+        <div class="process-step"><div class="process-num">02</div><div class="process-title">ایده</div><div class="process-desc">بر اساس نیاز شما، مسیر خلاقانه و اجرایی را مشخص می‌کنیم.</div></div>
+        <div class="process-step"><div class="process-num">03</div><div class="process-title">اجرا</div><div class="process-desc">ایده را با دقت و استاندارد حرفه‌ای به نتیجه می‌رسانیم.</div></div>
+        <div class="process-step"><div class="process-num">04</div><div class="process-title">همراهی</div><div class="process-desc">همکاری ما با تحویل پروژه پایان نمی‌یابد.</div></div>
+    </div>
+</section>
+
+<section id="portfolio">
+    <div class="sec-header">
+        <div class="sec-title-en">Selected Works</div>
+        <h2 class="sec-title-fa">نمونه‌کارها</h2>
+        <p class="sec-sub" style="color:var(--accent);font-size:1.2rem">کارهایی که خودشان سخن می‌گویند.</p>
+        <p class="sec-sub">بخشی از پروژه‌هایی که با ایده، خلاقیت و اجرای تیم غزل شکل گرفته‌اند.</p>
+    </div>
+    <div class="portfolio-grid">
+        <button class="portfolio-item" type="button"><img src="p1.jpg" alt="هویت بصری ویولت" loading="lazy"><span>هویت بصری ویولت</span></button>
+        <button class="portfolio-item" type="button"><img src="p2.jpg" alt="لوگو و بسته‌بندی عسل اصفهان" loading="lazy"><span>لوگو و بسته‌بندی عسل اصفهان</span></button>
+        <button class="portfolio-item" type="button"><img src="p3.jpg" alt="طراحی کاتالوگ برلیان فراز سپهر" loading="lazy"><span>طراحی کاتالوگ برلیان فراز سپهر</span></button>
+        <button class="portfolio-item" type="button"><img src="p4.jpg" alt="هویت بصری سجادی گلد" loading="lazy"><span>هویت بصری سجادی گلد</span></button>
+        <button class="portfolio-item" type="button"><img src="p5.jpg" alt="بنرهای تبلیغاتی ۱۰۰۱" loading="lazy"><span>بنرهای تبلیغاتی ۱۰۰۱</span></button>
+        <button class="portfolio-item" type="button"><img src="p6.jpg" alt="پوسترهای مناسبتی" loading="lazy"><span>پوسترهای مناسبتی</span></button>
+        <button class="portfolio-item" type="button"><img src="p7.jpg" alt="لوگوی موبایل اصفهان" loading="lazy"><span>لوگوی موبایل اصفهان</span></button>
+    </div>
+</section>
+</div>
+
+<section id="contact" class="cta-section">
+    <div class="container">
+        <h2>وقت آن رسیده که برند شما دیده شود.</h2>
+        <div class="cta-content">
+            ایده‌ای در سر دارید؟ پروژه‌ای تازه در پیش است؟ یا هنوز نمی‌دانید تبلیغات برندتان را از کجا شروع کنید؟
+            <span class="strong">با ما گفت‌وگو کنید.</span>
+            ما می‌شنویم، ایده می‌دهیم و با هم شروع می‌کنیم.
+        </div>
+        <a href="#" class="btn btn-solid open-modal-btn" style="padding:15px 40px;font-size:1.2rem">همکاری با ما</a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-logo">Ghazal <span>—</span> Creative Advertising Agency</div>
+        <div class="footer-text">© <span id="yr">2026</span> Ghazal. All Rights Reserved.</div>
+    </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lb" role="dialog" aria-modal="true" aria-label="نمایش نمونه‌کار">
+    <button class="lb-btn lb-close" aria-label="بستن">×</button>
+    <button class="lb-btn lb-prev" aria-label="نمونه قبلی">›</button>
+    <button class="lb-btn lb-next" aria-label="نمونه بعدی">‹</button>
+    <figure><img id="lb-img" alt="" src=""><figcaption id="lb-cap"></figcaption></figure>
+</div>
+
+<!-- Modal (پنجره شیشه‌ای تماس) -->
+<div class="modal-overlay" id="contactModal">
+    <div class="modal-content">
+        <button class="modal-close-btn" aria-label="بستن">×</button>
+        <h3>همکاری با غزل</h3>
+        <p>برای شروع همکاری یا دریافت مشاوره، از طریق راه‌های زیر با تیم ما در ارتباط باشید:</p>
+        <div class="contact-links">
+            <a href="https://t.me/mer3ad031" target="_blank" class="btn btn-solid">ارسال پیام در تلگرام</a>
+            <a href="tel:09138239332" class="btn">تماس تلفنی: 09138239332</a>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+(function(){
+    var stage = document.getElementById('stage'), tilt = document.getElementById('tilt');
+    if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+        function move(x,y){
+            var r = stage.getBoundingClientRect();
+            var dx = Math.max(-1, Math.min(1, (x - (r.left + r.width/2)) / (innerWidth/2)));
+            var dy = Math.max(-1, Math.min(1, (y - (r.top + r.height/2)) / (innerHeight/2)));
+            tilt.style.transform = 'rotateY('+(dx*7)+'deg) rotateX('+(-dy*7)+'deg)';
+        }
+        addEventListener('mousemove', function(e){ move(e.clientX, e.clientY) });
+        document.addEventListener('mouseleave', function(){ tilt.style.transform = '' });
+    }
+
+    var lb = document.getElementById('lb'), img = document.getElementById('lb-img'), cap = document.getElementById('lb-cap');
+    var items = [].slice.call(document.querySelectorAll('.portfolio-item')), cur = 0, last = null;
+    function show(i){
+        cur = (i + items.length) % items.length; 
+        var it = items[cur].querySelector('img'); 
+        img.src = it.src; img.alt = it.alt; cap.textContent = it.alt;
+    }
+    function openLb(i){
+        last = document.activeElement; show(i); 
+        lb.classList.add('open'); document.body.style.overflow = 'hidden'; 
+        lb.querySelector('.lb-close').focus();
+    }
+    function closeLb(){
+        lb.classList.remove('open'); document.body.style.overflow = ''; 
+        if(last) last.focus();
+    }
+    items.forEach(function(b, i){ b.addEventListener('click', function(){ openLb(i) }) });
+    lb.querySelector('.lb-close').onclick = closeLb;
+    lb.querySelector('.lb-prev').onclick = function(){ show(cur-1) };
+    lb.querySelector('.lb-next').onclick = function(){ show(cur+1) };
+    lb.addEventListener('click', function(e){ if(e.target === lb) closeLb() });
+    addEventListener('keydown', function(e){
+        if(!lb.classList.contains('open')) return;
+        if(e.key === 'Escape') closeLb();
+        else if(e.key === 'ArrowLeft') show(cur+1);
+        else if(e.key === 'ArrowRight') show(cur-1);
+    });
+    var sx = null; 
+    lb.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX }, {passive: true});
+    lb.addEventListener('touchend', function(e){
+        if(sx === null) return; 
+        var d = e.changedTouches[0].clientX - sx; 
+        if(Math.abs(d) > 50) show(d < 0 ? cur+1 : cur-1); 
+        sx = null;
+    });
+
+    var contactModal = document.getElementById('contactModal');
+    var openModalBtns = document.querySelectorAll('.open-modal-btn');
+    var closeModalBtn = document.querySelector('.modal-close-btn');
+
+    openModalBtns.forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            contactModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    function closeContactModal() {
+        contactModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    closeModalBtn.addEventListener('click', closeContactModal);
+    contactModal.addEventListener('click', function(e) {
+        if (e.target === contactModal) closeContactModal();
+    });
+})();
+</script>
+
+</body>
+</html>
