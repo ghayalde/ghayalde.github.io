@@ -5,15 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="غزل؛ آژانس تبلیغاتی خلاق. طراحی گرافیک، تولید محتوا، مدیریت فضای مجازی و طراحی سایت.">
 <title>غزل | آژانس تبلیغاتی خلاق</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
+/* فراخوانی فونت مربع */
+@font-face {
+    font-family: 'Morabba';
+    src: url('fonts/Morabba-Regular.woff2') format('woff2'),
+         url('fonts/Morabba-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Morabba';
+    src: url('fonts/Morabba-Bold.woff2') format('woff2'),
+         url('fonts/Morabba-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
 :root {
     --bg-main: #020204;
     --bg-card: #313133;
     --text-light: #ECEEFF;
     --muted: #b0b0b2;
     --accent: #D0A616;
-    --font-fa: 'Vazirmatn', Tahoma, sans-serif;
+    /* تغییر فونت فارسی به مربع */
+    --font-fa: 'Morabba', Tahoma, sans-serif;
     --font-en: 'Montserrat', Arial, sans-serif;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,8 +43,8 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
 .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
 header { padding: 30px 0; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
-.logo { font-size: 1.2rem; font-weight: 900; font-family: var(--font-en); letter-spacing: 1px; }
-.logo span { color: var(--accent); }
+.logo-img { height: 40px; width: auto; filter: invert(1); transition: 0.3s; }
+.logo-img:hover { filter: invert(1) drop-shadow(0 0 5px var(--accent)); }
 .nav-links { display: flex; gap: 30px; list-style: none; }
 .btn { background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 12px 24px; font-family: var(--font-fa); font-weight: 700; cursor: pointer; transition: all .3s; display: inline-flex; align-items: center; justify-content: center; border-radius: 4px; }
 .btn:hover { background: var(--accent); color: var(--bg-main); }
@@ -42,19 +59,9 @@ section { padding: 100px 0; border-top: 1px solid rgba(236,238,255,.06); }
 
 /* Hero */
 .hero { border-top: none; padding: 40px 0 110px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; }
-.logo-stage { position: relative; width: min(380px, 78vw); aspect-ratio: 1; display: grid; place-items: center; perspective: 1200px; margin-bottom: 20px; }
+.logo-stage { position: relative; width: min(550px, 90vw); aspect-ratio: 1; display: grid; place-items: center; perspective: 1200px; margin-bottom: 20px; }
 .logo-tilt { width: 100%; height: 100%; display: grid; place-items: center; transform-style: preserve-3d; transition: transform .3s ease-out; animation: float 7s ease-in-out infinite; }
-.glow, .hero-logo { grid-area: 1/1; }
-
-.glow { 
-    width: 140%; 
-    aspect-ratio: 1; 
-    border-radius: 50%; 
-    background: radial-gradient(circle at 50% 50%, rgba(232,195,50,0.8) 0%, rgba(208,166,22,0.4) 45%, transparent 70%); 
-    box-shadow: 0 0 150px 80px rgba(208,166,22,0.4), 0 0 350px 150px rgba(208,166,22,0.25); 
-    filter: blur(15px);
-}
-.hero-logo { width: 56%; height: auto; position: relative; transform: translateZ(40px); filter: invert(1); }
+.hero-logo { grid-area: 1/1; width: 100%; height: auto; position: relative; transform: translateZ(40px); filter: invert(1); }
 
 @keyframes float { 0%, 100% { translate: 0 -6px; } 50% { translate: 0 8px; } }
 .hero h1 { font-size: 3.2rem; color: var(--accent); line-height: 1.5; font-weight: 900; max-width: 800px; }
@@ -92,17 +99,35 @@ section { padding: 100px 0; border-top: 1px solid rgba(236,238,255,.06); }
 
 .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 20px; }
 .portfolio-item { position: relative; aspect-ratio: 9/16; border: 1px solid transparent; border-radius: 8px; overflow: hidden; background: var(--bg-card); cursor: zoom-in; padding: 0; transition: border-color .3s; }
-.portfolio-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s; }
-.portfolio-item span { position: absolute; inset: auto 0 0 0; padding: 36px 14px 12px; background: linear-gradient(transparent, rgba(2, 2, 4, .88)); color: var(--text-light); font: 700 .95rem var(--font-fa); text-align: right; opacity: 0; transition: opacity .3s; }
+.portfolio-item img, .portfolio-item video { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s; }
+.portfolio-item span { position: absolute; inset: auto 0 0 0; padding: 36px 14px 12px; background: linear-gradient(transparent, rgba(2, 2, 4, .88)); color: var(--text-light); font: 700 .95rem var(--font-fa); text-align: right; opacity: 0; transition: opacity .3s; z-index: 2; }
 .portfolio-item:hover, .portfolio-item:focus-visible { border-color: var(--accent); }
-.portfolio-item:hover img { transform: scale(1.04); }
+.portfolio-item:hover img, .portfolio-item:hover video { transform: scale(1.04); }
 .portfolio-item:hover span, .portfolio-item:focus-visible span { opacity: 1; }
 @media(hover:none) { .portfolio-item span { opacity: 1; } }
+
+/* استایل آیکون پخش برای ویدیوها */
+.portfolio-item.video-item::after {
+    content: '▶';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    pointer-events: none;
+    transition: 0.3s ease;
+    z-index: 1;
+}
+.portfolio-item.video-item:hover::after {
+    color: var(--accent);
+    transform: translate(-50%, -50%) scale(1.1);
+}
 
 .lightbox { position: fixed; inset: 0; background: rgba(2, 2, 4, .97); display: none; align-items: center; justify-content: center; z-index: 100; padding: 56px 70px; }
 .lightbox.open { display: flex; }
 .lightbox figure { display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: 100%; max-height: 100%; }
-.lightbox img { max-width: 100%; max-height: calc(100vh - 150px); object-fit: contain; border-radius: 6px; }
+.lightbox img, .lightbox video { max-width: 100%; max-height: calc(100vh - 150px); object-fit: contain; border-radius: 6px; }
 .lightbox figcaption { color: var(--muted); }
 .lb-btn { position: absolute; background: rgba(236, 238, 255, .08); color: var(--text-light); border: 1px solid rgba(236, 238, 255, .2); width: 46px; height: 46px; border-radius: 50%; font-size: 1.6rem; line-height: 1; cursor: pointer; transition: .3s; }
 .lb-btn:hover { background: var(--accent); color: var(--bg-main); }
@@ -118,7 +143,7 @@ footer { padding: 50px 0; text-align: center; border-top: 1px solid rgba(236, 23
 .footer-logo span { color: var(--accent); }
 .footer-text { color: var(--muted); font-size: .9rem; margin-top: 15px; font-family: var(--font-en); direction: ltr; }
 
-/* Modal */
+/* Modal تماس */
 .modal-overlay {
     position: fixed; inset: 0; 
     background: rgba(2, 2, 4, 0.6); 
@@ -151,7 +176,7 @@ footer { padding: 50px 0; text-align: center; border-top: 1px solid rgba(236, 23
 @media(max-width:768px){
     .hero h1 { font-size: 2.2rem; } .sec-title-fa, .cta-section h2 { font-size: 2rem; }
     .process-step { flex-direction: column; align-items: flex-start; } .process-title { margin: 6px 0; }
-    .nav-links { display: none; } .logo { font-size: .95rem; } .btn { padding: 10px 16px; }
+    .nav-links { display: none; } .btn { padding: 10px 16px; }
     .service-card { padding: 30px; }
     .lightbox { padding: 60px 10px 70px; } .lb-prev, .lb-next { top: auto; bottom: 12px; margin: 0; }
     .lb-prev { right: calc(50% + 8px); } .lb-next { left: calc(50% + 8px); }
@@ -162,7 +187,10 @@ footer { padding: 50px 0; text-align: center; border-top: 1px solid rgba(236, 23
 <body>
 <div class="container">
 <header>
-    <div class="logo">Ghazal <span>—</span> Creative Agency</div>
+    <!-- لوگوی سایت در هدر، بدون متن -->
+    <a href="#" class="logo-link">
+        <img src="Bold Black Geometric Monogram.png" alt="لوگوی غزل" class="logo-img">
+    </a>
     <ul class="nav-links">
         <li><a href="#about">درباره ما</a></li>
         <li><a href="#services">خدمات</a></li>
@@ -174,7 +202,6 @@ footer { padding: 50px 0; text-align: center; border-top: 1px solid rgba(236, 23
 <section class="hero">
     <div class="logo-stage" id="stage">
         <div class="logo-tilt" id="tilt">
-            <div class="glow"></div>
             <img src="Bold Black Geometric Monogram.png" alt="لوگوی غزل" class="hero-logo">
         </div>
     </div>
@@ -216,7 +243,7 @@ footer { padding: 50px 0; text-align: center; border-top: 1px solid rgba(236, 23
             <div class="service-number">02</div>
             <h3>تولید محتوا و فضای مجازی</h3>
             <span class="en-subtitle">Content &amp; Social Media</span>
-            <p>مخاطب امروز پیش از خرید، برند شما را در فضای مجازی می‌بیند؛ پس حضور شما باید حرفه‌ای، منظم و متمایز باشد. از ایده‌پردازی و سناریو تا طراحی، تولید، تدوین و مدیریت محتوا، همراهتان هستیم تا صفحه‌تان فقط یک صفحه نباشد؛ صدای برندتان باشد.</p>
+            <p>مخاطب امروز پیش از خرید، برند شما را در فضای مجازی می‌بیند؛ پس حضور شما باید حرفه‌ای، منظم و متمایز باشد. از ایده‌‌پردازی و سناریو تا طراحی، تولید، تدوین و مدیریت محتوا، همراهتان هستیم تا صفحه‌تان فقط یک صفحه نباشد؛ صدای برندتان باشد.</p>
         </div>
         <div class="service-card">
             <div class="service-number">03</div>
@@ -240,7 +267,7 @@ footer { padding: 50px 0; text-align: center; border-top: 1px solid rgba(236, 23
         <div class="feature-item feature-wide">
             <h3>همه‌چیز در یک تیم</h3>
             <p>طراحی، محتوا، فضای مجازی و سایت را می‌توانید با یک تیم و یک نگاه یکپارچه پیش ببرید.</p>
-            <p>از شکل‌گیری ایده تا اجرای نهایی، همه‌چیز در یک مسیر هماهنگ و هدفمند پیش می‌رود؛ تا هویت برند شما در تمام نقاط تماس، یکدست، حرفه‌ای و متمایز دیده شود. ما کنار شما هستیم تا ایده‌ها را به طراحی‌های جذاب، محتوای اثرگذار و تجربه‌ای حرفه‌ای در فضای دیجیتال تبدیل کنیم؛ بدون اینکه برای هر بخش، سراغ یک تیم جدا بروید.</p>
+            <p>از شکل‌گیری ایده تا اجرای نهایی، همه‌‌چیز در یک مسیر هماهنگ و هدفمند پیش می‌رود؛ تا هویت برند شما در تمام نقاط تماس، یکدست، حرفه‌ای و متمایز دیده شود. ما کنار شما هستیم تا ایده‌ها را به طراحی‌های جذاب، محتوای اثرگذار و تجربه‌ای حرفه‌ای در فضای دیجیتال تبدیل کنیم؛ بدون اینکه برای هر بخش، سراغ یک تیم جدا بروید.</p>
             <p style="color:var(--accent); font-weight:700; margin-top:10px;">یک تیم، یک نگاه، یک مسیر برای رشد برند شما.</p>
         </div>
     </div>
@@ -268,6 +295,7 @@ footer { padding: 50px 0; text-align: center; border-top: 1px solid rgba(236, 23
         <p class="sec-sub">بخشی از پروژه‌هایی که با ایده، خلاقیت و اجرای تیم غزل شکل گرفته‌اند.</p>
     </div>
     <div class="portfolio-grid">
+        <!-- تصاویر قدیمی -->
         <button class="portfolio-item" type="button"><img src="p1.jpg" alt="هویت بصری ویولت" loading="lazy"><span>هویت بصری ویولت</span></button>
         <button class="portfolio-item" type="button"><img src="p2.jpg" alt="لوگو و بسته‌بندی عسل اصفهان" loading="lazy"><span>لوگو و بسته‌بندی عسل اصفهان</span></button>
         <button class="portfolio-item" type="button"><img src="p3.jpg" alt="طراحی کاتالوگ برلیان فراز سپهر" loading="lazy"><span>طراحی کاتالوگ برلیان فراز سپهر</span></button>
@@ -275,6 +303,41 @@ footer { padding: 50px 0; text-align: center; border-top: 1px solid rgba(236, 23
         <button class="portfolio-item" type="button"><img src="p5.jpg" alt="بنرهای تبلیغاتی ۱۰۰۱" loading="lazy"><span>بنرهای تبلیغاتی ۱۰۰۱</span></button>
         <button class="portfolio-item" type="button"><img src="p6.jpg" alt="پوسترهای مناسبتی" loading="lazy"><span>پوسترهای مناسبتی</span></button>
         <button class="portfolio-item" type="button"><img src="p7.jpg" alt="لوگوی موبایل اصفهان" loading="lazy"><span>لوگوی موبایل اصفهان</span></button>
+
+        <!-- ۱۰ تصویر جدید اضافه شده -->
+        <button class="portfolio-item" type="button"><img src="452.jpg" alt="طراحی بنر تخفیف" loading="lazy"><span>طراحی بنر تخفیف</span></button>
+        <button class="portfolio-item" type="button"><img src="mer3ad (1)-9.jpg" alt="بنر مبلمان" loading="lazy"><span>بنر مبلمان</span></button>
+        <button class="portfolio-item" type="button"><img src="5904757352949289142.jpg" alt="طراحی پرچم و لوگوتایپ" loading="lazy"><span>طراحی پرچم و لوگوتایپ</span></button>
+        <button class="portfolio-item" type="button"><img src="5904757352949289141.jpg" alt="لوگوی Festival Flower" loading="lazy"><span>لوگوی Festival Flower</span></button>
+        <button class="portfolio-item" type="button"><img src="5904757352949289140.jpg" alt="برندینگ Festival Flower" loading="lazy"><span>برندینگ Festival Flower</span></button>
+        <button class="portfolio-item" type="button"><img src="5904757352949289139.jpg" alt="تابلو مغازه Festival Flower" loading="lazy"><span>تابلو مغازه Festival Flower</span></button>
+        <button class="portfolio-item" type="button"><img src="5904757352949289138.jpg" alt="طراحی لوگوی کافه رونا" loading="lazy"><span>طراحی لوگوی کافه رونا</span></button>
+        <button class="portfolio-item" type="button"><img src="5904757352949289137.jpg" alt="فضای داخلی کافه رونا" loading="lazy"><span>فضای داخلی کافه رونا</span></button>
+        <button class="portfolio-item" type="button"><img src="5904757352949289136.jpg" alt="تایپوگرافی ویژن" loading="lazy"><span>تایپوگرافی ویژن</span></button>
+        <button class="portfolio-item" type="button"><img src="5904757352949289135.jpg" alt="طراحی پوستر دوره‌های آموزشی" loading="lazy"><span>طراحی پوستر دوره‌های آموزشی</span></button>
+
+        <!-- ۵ جایگاه جدید برای ویدیوها -->
+        <!-- برای ویدیوها کافیست آدرس src را به فایل mp4 خود تغییر دهید -->
+        <button class="portfolio-item video-item" type="button">
+            <video src="video1.mp4" muted loop playsinline></video>
+            <span>ویدیو نمونه‌کار ۱</span>
+        </button>
+        <button class="portfolio-item video-item" type="button">
+            <video src="video2.mp4" muted loop playsinline></video>
+            <span>ویدیو نمونه‌کار ۲</span>
+        </button>
+        <button class="portfolio-item video-item" type="button">
+            <video src="video3.mp4" muted loop playsinline></video>
+            <span>ویدیو نمونه‌کار ۳</span>
+        </button>
+        <button class="portfolio-item video-item" type="button">
+            <video src="video4.mp4" muted loop playsinline></video>
+            <span>ویدیو نمونه‌کار ۴</span>
+        </button>
+        <button class="portfolio-item video-item" type="button">
+            <video src="video5.mp4" muted loop playsinline></video>
+            <span>ویدیو نمونه‌کار ۵</span>
+        </button>
     </div>
 </section>
 </div>
@@ -298,12 +361,16 @@ footer { padding: 50px 0; text-align: center; border-top: 1px solid rgba(236, 23
     </div>
 </footer>
 
-<!-- Lightbox -->
+<!-- Lightbox (پشتیبانی از عکس و ویدیو) -->
 <div class="lightbox" id="lb" role="dialog" aria-modal="true" aria-label="نمایش نمونه‌کار">
     <button class="lb-btn lb-close" aria-label="بستن">×</button>
     <button class="lb-btn lb-prev" aria-label="نمونه قبلی">›</button>
     <button class="lb-btn lb-next" aria-label="نمونه بعدی">‹</button>
-    <figure><img id="lb-img" alt="" src=""><figcaption id="lb-cap"></figcaption></figure>
+    <figure>
+        <img id="lb-img" alt="" src="" style="display:none;">
+        <video id="lb-vid" controls style="display:none;"></video>
+        <figcaption id="lb-cap"></figcaption>
+    </figure>
 </div>
 
 <!-- Modal (پنجره شیشه‌ای تماس) -->
@@ -323,6 +390,7 @@ footer { padding: 50px 0; text-align: center; border-top: 1px solid rgba(236, 23
 document.getElementById('yr').textContent = new Date().getFullYear();
 
 (function(){
+    // افکت حرکتی هیرو
     var stage = document.getElementById('stage'), tilt = document.getElementById('tilt');
     if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
         function move(x,y){
@@ -335,33 +403,66 @@ document.getElementById('yr').textContent = new Date().getFullYear();
         document.addEventListener('mouseleave', function(){ tilt.style.transform = '' });
     }
 
-    var lb = document.getElementById('lb'), img = document.getElementById('lb-img'), cap = document.getElementById('lb-cap');
-    var items = [].slice.call(document.querySelectorAll('.portfolio-item')), cur = 0, last = null;
+    // کدهای لایت‌باکس (ارتقا یافته برای عکس و ویدیو)
+    var lb = document.getElementById('lb');
+    var lbImg = document.getElementById('lb-img');
+    var lbVid = document.getElementById('lb-vid');
+    var cap = document.getElementById('lb-cap');
+    var items = [].slice.call(document.querySelectorAll('.portfolio-item'));
+    var cur = 0, last = null;
+
     function show(i){
         cur = (i + items.length) % items.length; 
-        var it = items[cur].querySelector('img'); 
-        img.src = it.src; img.alt = it.alt; cap.textContent = it.alt;
+        var itemContainer = items[cur];
+        var mediaElement = itemContainer.querySelector('img, video'); 
+        var title = itemContainer.querySelector('span').textContent;
+        
+        lbVid.pause(); // متوقف کردن ویدیوی قبلی در صورت وجود
+
+        if (mediaElement.tagName.toLowerCase() === 'img') {
+            lbImg.src = mediaElement.src;
+            lbImg.alt = mediaElement.alt;
+            lbImg.style.display = 'block';
+            lbVid.style.display = 'none';
+            lbVid.src = ''; 
+        } else {
+            lbVid.src = mediaElement.querySelector('source') ? mediaElement.querySelector('source').src : mediaElement.src;
+            lbVid.style.display = 'block';
+            lbImg.style.display = 'none';
+            lbImg.src = '';
+            lbVid.play(); // پخش خودکار ویدیو
+        }
+        cap.textContent = title;
     }
+
     function openLb(i){
-        last = document.activeElement; show(i); 
-        lb.classList.add('open'); document.body.style.overflow = 'hidden'; 
+        last = document.activeElement; 
+        show(i); 
+        lb.classList.add('open'); 
+        document.body.style.overflow = 'hidden'; 
         lb.querySelector('.lb-close').focus();
     }
+
     function closeLb(){
-        lb.classList.remove('open'); document.body.style.overflow = ''; 
+        lb.classList.remove('open'); 
+        document.body.style.overflow = ''; 
+        lbVid.pause(); // متوقف کردن ویدیو هنگام بستن پنجره
         if(last) last.focus();
     }
+
     items.forEach(function(b, i){ b.addEventListener('click', function(){ openLb(i) }) });
     lb.querySelector('.lb-close').onclick = closeLb;
     lb.querySelector('.lb-prev').onclick = function(){ show(cur-1) };
     lb.querySelector('.lb-next').onclick = function(){ show(cur+1) };
     lb.addEventListener('click', function(e){ if(e.target === lb) closeLb() });
+    
     addEventListener('keydown', function(e){
         if(!lb.classList.contains('open')) return;
         if(e.key === 'Escape') closeLb();
         else if(e.key === 'ArrowLeft') show(cur+1);
         else if(e.key === 'ArrowRight') show(cur-1);
     });
+
     var sx = null; 
     lb.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX }, {passive: true});
     lb.addEventListener('touchend', function(e){
@@ -371,6 +472,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
         sx = null;
     });
 
+    // Modal (پنجره شیشه‌ای تماس)
     var contactModal = document.getElementById('contactModal');
     var openModalBtns = document.querySelectorAll('.open-modal-btn');
     var closeModalBtn = document.querySelector('.modal-close-btn');
